@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-book: Cómo Convertirte en Creador UGC</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        :root {
+            --primary-color: #f18d8d; /* Un púrpura suave */
+            --secondary-color: #f7d24a; /* Un amarillo cálido */
+            --light-bg: #f9f9f9;
+            --dark-text: #333;
+            --light-text: #f9f9f9;
+            --border-color: #ddd;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 3em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .section {
+            background: var(--light-bg);
+            padding: 50px 0;
+        }
+
+        .problem-section {
+            background: #ffff;
+            box-shadow: var(--shadow);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .solution-section {
+             background: #f18d8d;
+             box-shadow: var(--shadow);
+             border-radius: 15px;
+             padding: 30px;
+             margin-top: 40px;
+        }
+
+        .offer-section {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 50px 20px;
+            border-radius: 20px;
+        }
+
+        .cta-button {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background-color: var(--secondary-color);
+            color: var(--dark-text);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button-light {
+             background-color: #fff;
+             color: var(--primary-color);
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .feature-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            flex: 1 1 250px;
+            text-align: center;
+        }
+
+        .image-box {
+            border: 2px dashed var(--border-color);
+            background-color: #f0f0f0;
+            width: 100%;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #888;
+            font-style: italic;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .image-box.square {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-top: 15px;
+        }
+        
+        .testimonial-card .author {
+             font-weight: bold;
+             margin-top: 10px;
+             text-align: right;
+        }
+
+        .what-you-get {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .what-you-get th, .what-you-get td {
+            text-align: left;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .what-you-get th {
+            background-color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .what-you-get tr:nth-child(even) {
+            background-color: #807e98;
+        }
+
+        .urgency-bar {
+            background-color: var(--secondary-color);
+            color: var(--dark-text);
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+            border-radius: 10px;
+            margin: 40px auto;
+            max-width: 600px;
+            box-shadow: var(--shadow);
+        }
+        
+        .faq-section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .faq-item {
+             border-bottom: 1px solid var(--border-color);
+             padding: 15px 0;
+        }
+        
+        .faq-item:last-child {
+             border-bottom: none;
+        }
+        
+        .faq-item h4 {
+             font-weight: 600;
+             margin-bottom: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        
+        @media (max-width: 600px) {
+             .cta-button {
+                  width: 90%;
+             }
+             h1 {
+                  font-size: 2em;
+             }
+             h2 {
+                  font-size: 1.5em;
+             }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Conviértete en Creadora UGC y Monetiza tu Creatividad</h1>
+            <p>Descubre el secreto mejor guardado para colaborar con marcas, ¡sin ser influencer!</p>
+            <img src="https://i.imgur.com/H8aDFAi.png" 
+     alt="Portada del Ebook Cómo Convertirte en Creador UGC"
+     style="width: 100%; height: 400px; object-fit: cover;">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Problema: Identificación y Empatía -->
+        <section class="section problem-section">
+            <div class="container">
+                <h2>¿Convierte tu Creatividad en Ingresos sin ser Influencer!</h2>
+                <p>¿Sabías que hoy puedes ganar dinero creando contenido para marcas sin ser influencer y sin mostrar tu rostro? ✨
+
+Aprende paso a paso cómo transformar tu creatividad en ingresos: desde armar tu portafolio hasta conseguir tus primeros clientes.
+No necesitas seguidores, solo tu celular y las estrategias correctas.</p>
+            </div>
+        </section>
+
+        <!-- Agitación del Problema -->
+        <section class="section">
+            <div class="container">
+                <h2>La Nueva Forma de Trabajar con Marcas sin Salir en Cámara</h2>
+                <p>Descubre!</p>
+                <ul>
+                    <li>Qué es el UGC y por qué es una oportunidad única.</li>
+                    <li>Cómo empezar desde cero y conseguir tus primeros clientes.</li>
+                    <li>Ves oportunidades de trabajo remoto, pero no tienes las habilidades "oficiales" que piden.</li>
+                    <li>Estrategias y tipos de contenido que funcionan sin mostrar tu cara.</li>
+                </ul>
+                
+        <p class="paragraph-separator">Es una sensación agotadora. Pero, ¿y si te dijera que hay una forma de saltarte esa carrera de ratas, de empezar a generar ingresos con tu creatividad <strong>mañana mismo</strong>, sin importar cuántos seguidores tengas?</p>
+    </div>
+
+        </section>
+
+        <!-- Solución: El Producto -->
+        <section class="section solution-section">
+            <div class="container">
+                <h2>El Camino al UGC sin Cámara</h2>
+                <p>Imagina poder trabajar con marcas reconocidas, sin necesidad de ser influencer ni mostrar tu rostro frente a la cámara. Eso es lo que te ofrece el User Generated Content (UGC sin cámara): una forma auténtica, creativa y rentable de generar ingresos desde casa, usando solo tu celular y tu imaginación.</p>
+                <p>Presentamos el <strong>E-book "UGC sin cámara"</strong>, una guía paso a paso, clara y práctica que te enseña cómo crear contenido profesional que las marcas aman, incluso sin salir frente a la pantalla.</p>
+                 <img src="https://i.imgur.com/6Fo2So9.png" 
+          style="width: 100%; height: 450px; object-fit: cover;">
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+               <a href="https://hotmart.com/es/marketplace/productos/ugc-sin-camara/T102068328O" class="cta-button">¡Sí, Quiero Convertirme en Creador UGC!</a>
+            </div>
+        </section>
+
+        <!-- Prueba de que Funciona -->
+        <section class="section">
+            <div class="container">
+                <h2>Ellos Ya Están Transformando su Realidad</h2>
+                <p>No tienes que creerme a mí. Mira lo que dicen quienes ya están aplicando estos principios:</p>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <img src="https://i.imgur.com/6W8TWPY.png" 
+          style="width: 100%; height: 250px; object-fit: cover;">
+                        <p>“Estaba a punto de rendirme con las redes sociales. Este e-book me dio el empujón que necesitaba y, en menos de un mes, conseguí mi primera colaboración pagada. ¡Increíble!”</p>
+                        <p class="author">- Melissa p., Creadora UGC</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="https://i.imgur.com/Pv60XZl.png" 
+          style="width: 100%; height: 250px; object-fit: cover;">
+                        <p>“La guía es súper clara y práctica. Pude entender todo desde el primer capítulo y ya estoy en conversaciones con tres marcas. Lo recomiendo al 100%.”</p>
+                        <p class="author">- Javier R., Emprendedor Digital</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="https://i.imgur.com/Hi60Vzs.png" 
+          style="width: 100%; height: 250px; object-fit: cover;">
+                        <p>“Por fin un material que no te vende humo. Directo al punto, con estrategias reales y ejemplos que funcionan. Mi vida laboral ha cambiado por completo.”</p>
+                        <p class="author">- Sofía P., Estudiante</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Oferta -->
+        <section class="section offer-section">
+            <div class="container">
+                <h2>Esto es Exactamente lo que Obtienes</h2>
+                <p>El E-book “Cómo Convertirte en Creador UGC” no es solo una guía, es tu manual completo para empezar a ganar dinero con tu creatividad.</p>
+                <table class="what-you-get">
+                    <thead>
+                        <tr>
+                            <th>Entregable</th>
+                            <th>Valor Real Percibido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>E-book "UGC Sin Camara"</td>
+                            <td>$30 USD</td>
+                        </tr>
+                        <tr>
+                            <td>Capítulo 1:Fundamentos del UGC</td>
+                            <td>Incluido</td>
+                        </tr>
+                        <tr>
+                            <td>Capítulo 2: Investigación de Mercado</td>
+                            <td>Incluido</td>
+                        </tr>
+                        <tr>
+                            <td>Capítulo 3: Construyendo tu Marca Personal</td>
+                            <td>Incluido</td>
+                        </tr>
+                        <tr>
+                            <td>Capítulo 4: Creación de Contenido UGC</td>
+                            <td>Incluido</td>
+                        </tr>
+                        <tr>
+                            <td>Capítulo 5: Cómo Empezar y Conseguir Clientes</td>
+                            <td>Incluido</td>
+                        
+                        </tr>
+                        <tr>
+                            <td>BONO ESPECIAL: Negociación-Contratos y Distribución-Crecimiento</td>
+                            <td>$20 USD</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: center; font-size: 1.5em; font-weight: 700; margin-top: 20px;">Valor Total: $50 USD</p>
+                <p style="text-align: center; font-size: 2em; font-weight: 700; margin-top: 10px;">Tu Precio Hoy: Solo $8.99 USD</p>
+                <p style="text-align: center; font-size: 1.2em; font-style: italic;">Acceso inmediato y de por vida. Descarga en PDF.</p>
+                <div style="text-align: center; margin-top: 20px;">
+                <a href="https://hotmart.com/es/marketplace/productos/ugc-sin-camara/T102068328O" class="cta-button">¡Sí, Quiero la Oferta Especial!</a>
+            </div>
+        </section>
+        
+        <!-- Urgencia y Escasez -->
+        <section class="section">
+            <div class="container">
+                <div class="urgency-bar">
+                    <h3>¡Oferta por Tiempo Limitado!</h3>
+                    <p>El precio especial de $8.99 USD y el bono de plantillas <strong>expiran en 24 horas</strong>. Después, el precio subirá. No dejes pasar esta oportunidad de oro para empezar a monetizar tu creatividad.</p>
+                </div>
+            </div>
+
+ 
+    <section>
+    <div style="background-color: #fce4e4; padding: 30px; border-radius: 10px; border: 2px solid #141105; text-align: center;">
+        
+        <h3>¡Oferta por Tiempo Limitado!</h3>
+        <p>El precio especial de $8.99 USD y el bono de plantillas <strong>expiran en 24 horas</strong>. Después, el precio subirá. No dejes pasar esta oportunidad de oro para empezar a monetizar tu creatividad.</p>
+
+        <div class="contenedor-contador">
+            <div id="contador-tiempo">
+                <span id="horas">24</span> :
+                <span id="minutos">00</span> :
+                <span id="segundos">00</span>
+            
+                <style>
+/* Estilos para Centrar el Bloque */
+.contenedor-contador {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Estilo visual del Contador de Tiempo (rojo, borde, fuente grande) */
+#contador-tiempo {
+    font-size: 2.5em; 
+    font-weight: bold;
+    color: #FF0000; /* Rojo para urgencia */
+    padding: 10px 20px;
+    border: 3px solid #FF0000;
+    border-radius: 8px;
+    display: inline-block; 
+    /* Animación para el efecto de "movimiento" o pulsación */
+    animation: pulse 1.5s infinite; 
+}
+
+#contador-tiempo span {
+    display: inline-block;
+    min-width: 40px; 
+}
+
+/* Definición de la animación de pulsación (CSS Keyframes) */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); } /* Ligeramente más grande */
+    100% { transform: scale(1); }
+}
+
+/* Estilo del botón (solo si no lo tienes ya definido) */
+.cta-button {
+    display: inline-block;
+    background-color: #FF0000; 
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    font-size: 1.2em;
+}
+
+.cta-button:hover {
+    background-color: #cc0000;
+}
+</style>
+
+<script>
+    // Configuración para que el reloj sea persistente (guarda la hora en el navegador)
+    const CLAVE_EXPIRACION = 'ugc_sin_camara_expiracion';
+    const DURACION_OFERTA_MS = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
+
+    let tiempoExpiracion = localStorage.getItem(CLAVE_EXPIRACION);
+
+    // 1. Verifica si la hora de expiración existe y es válida
+    if (!tiempoExpiracion || new Date().getTime() > parseInt(tiempoExpiracion)) {
+        // Si no existe o ya expiró, establece una nueva hora de expiración
+        tiempoExpiracion = new Date().getTime() + DURACION_OFERTA_MS;
+        localStorage.setItem(CLAVE_EXPIRACION, tiempoExpiracion);
+    } else {
+        // Si ya existe, usa la hora guardada
+        tiempoExpiracion = parseInt(tiempoExpiracion);
+    }
+
+    // 2. Obtiene los elementos del HTML
+    const horasEl = document.getElementById('horas');
+    const minutosEl = document.getElementById('minutos');
+    const segundosEl = document.getElementById('segundos');
+    const contenedorContador = document.getElementById('contador-tiempo');
+
+    // 3. Función principal que actualiza el tiempo
+    function actualizarContador() {
+        const ahora = new Date().getTime();
+        const distancia = tiempoExpiracion - ahora;
+
+        // Si el contador ha terminado
+        if (distancia < 0) {
+            clearInterval(intervaloTemporizador);
+            contenedorContador.innerHTML = '¡La oferta ha terminado!';
+            contenedorContador.style.animation = 'none'; // Detiene la animación
+            return;
+        }
+
+        // Cálculos de tiempo
+        const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+        // Actualiza el texto con formato de dos dígitos
+        horasEl.textContent = String(horas).padStart(2, '0');
+        minutosEl.textContent = String(minutos).padStart(2, '0');
+        segundosEl.textContent = String(segundos).padStart(2, '0');
+    }
+
+    // 4. Inicializa y establece el intervalo para que se ejecute cada segundo
+    actualizarContador(); 
+    const intervaloTemporizador = setInterval(actualizarContador, 1000);
+</script>
+        </div>
+
+        <br>
+        
+        <a href="https://hotmart.com/es/marketplace/productos/ugc-sin-camara/T102068328O" class="cta-button">¡Sí, Quiero Convertirme en Creador UGC!</a>
+
+    </div>
+</section>
+    </div>
+</div>
+
+        </section>
+
+        <!-- Garantía y CTA -->
+        <section class="section">
+             <div class="container" style="text-align: center;"> 
+                <h2>Garantía de Satisfacción 100%</h2>
+                <p>Compra con total confianza. Si en los primeros 7 días sientes que este e-book no te ha ayudado a entender y aplicar el modelo de negocio UGC, te devolvemos el 100% de tu dinero.</p>
+                 <a href="https://hotmart.com/es/marketplace/productos/ugc-sin-camara/T102068328O" class="cta-button">¡Comienza Hoy tu Camino UGC por Solo $8.99!</a>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section">
+            <div class="container faq-section">
+                <h2>Preguntas Frecuentes</h2>
+                <div class="faq-item">
+                    <h4>¿Necesito ser influencer o tener miles de seguidores?</h4>
+                    <p>¡Para nada! El modelo UGC se basa en la autenticidad y en el contenido, no en el tamaño de tu audiencia. Este e-book está diseñado para que comiences desde cero.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>¿Cuánto tiempo me tomará aprender y empezar a ganar dinero?</h4>
+                    <p>El e-book es una guía práctica que puedes leer en un día. La velocidad de tus primeros ingresos dependerá de tu dedicación, pero muchos de nuestros alumnos han conseguido su primera colaboración en pocas semanas.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>¿Qué tipo de contenido puedo crear para marcas?</h4>
+                    <p>Desde videos testimoniales, unboxings, tutoriales, hasta fotos para redes sociales. El e-book te enseña los formatos más demandados y cómo crearlos de forma efectiva.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>¿El e-book es válido para cualquier país?</h4>
+                    <p>Sí. El modelo de negocio UGC es global y las estrategias explicadas aplican para marcas de cualquier parte del mundo.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>¿Necesito equipo profesional para empezar?</h4>
+                    <p>Puedes empezar con tu teléfono móvil. Lo más importante es la creatividad. El e-book te da consejos para crear contenido de alta calidad con recursos básicos.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>¿Cómo recibo el e-book después de comprar?</h4>
+                    <p>Inmediatamente después de tu compra, recibirás un correo electrónico con el enlace de descarga directa en formato PDF.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025. Todos los derechos reservados. | <a href="#" style="color: #777;">Términos y Condiciones</a> | <a href="#" style="color: #777;">Política de Privacidad</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
